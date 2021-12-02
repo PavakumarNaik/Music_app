@@ -1,0 +1,13 @@
+$spacing: 1.5rem;
+$primary: #e0dcdc;
+
+
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: $spacing*3.5;
+  text-align: center;
+  background: $primary;
+}
