@@ -7,18 +7,16 @@ import FooterMusicPlayer from "./FooterMusicPlayer";
 const AlbumDetail = (props) => {
   const location = useLocation();
   const [album, setAlbum] = useState({});
-  const [currentPlayTrack, setCurrentPlayTrack] = useState({});
+  const [index, setIndex] = useState(0);
   useEffect(() => {
     setAlbum(location.state.album);
-    setCurrentPlayTrack(location.state.album.songs[0]);
   }, []);
   const nextTrack = () => {
-    setCurrentPlayTrack(currentPlayTrack + 1);
+    setIndex(prevIndex => album.songs?.length - 1 === prevIndex ? 0 : (prevIndex + 1));
   };
   const prevTrack = () => {
-    setCurrentPlayTrack(currentPlayTrack - 1);
+    setIndex(prevIndex => prevIndex === 0 ? album.songs?.length - 1 : (prevIndex - 1));
   };
-  console.log("albumLength", currentPlayTrack);
   console.log("album", album);
 
   return (
@@ -89,7 +87,7 @@ const AlbumDetail = (props) => {
 
       <footer>
         <FooterMusicPlayer
-          currentPlayTrack={currentPlayTrack}
+          currentPlayTrack={location.state.album.songs[index]}
           nextTrack={nextTrack}
           prevTrack={prevTrack}
         />
