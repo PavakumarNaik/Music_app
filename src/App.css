@@ -41,7 +41,7 @@
   margin-bottom: 20px;
 }
 .albumSelection{
-  /* width: 30rem !important; */
+  margin-top: 5% !important;
 }
 .albumSelectionList{
   margin-top: 90px !important;
@@ -52,11 +52,10 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 34;
   border-radius: 50%;
-  /* background-color: #e72c30; */
-  height: 45px;
-    width: 57px;
+  height: 35px;
+    width: 47px;
+    margin-left: 60px !important;
 }
 .lyricsSection{
   margin-top: 10px !important;
@@ -86,10 +85,42 @@
   margin-top: 2px !important;
   background-color: #e0dcdc !important;
   height: 50px !important;
-
-
+}
+.albums{
+ margin-top: 3% !important;
 }
 .titlesection{
   margin-left: 140px !important;
   text-align: left !important;
+}
+.shuffle{
+  height: 25px !important;
+  width: 37px !important;
+}
+.skipStart{
+  height: 25px !important;
+  width: 37px !important;
+}
+.speaker{
+  height: 25px !important;
+  width: 37px !important;
+}
+
+.skipEnd{
+  height: 25px !important;
+  width: 37px !important;
+}
+.footerMusicPlay{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  height: 35px;
+    width: 47px;
+    margin-left:-30px !important;
+}
+.currentTrack{
+  margin-left: -90px !important;
 }
