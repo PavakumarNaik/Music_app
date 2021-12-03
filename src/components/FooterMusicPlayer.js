@@ -7,13 +7,17 @@ import {
   BsFillVolumeUpFill,
   BsShuffle,
 } from "react-icons/bs";
+import { shortTitle } from "../utils/helperFunctions";
+
 function FooterMusicPlayer(props) {
   const { currentPlayTrack, nextTrack, prevTrack } = props;
   return (
     <div>
       <div className="controls">
         <img src={currentPlayTrack.image} className="footerMusicPlay" />
-        <div className="currentTrack">{currentPlayTrack.track}</div>
+        <div className="currentTrack">
+          {shortTitle(currentPlayTrack.track, 25)}
+        </div>
 
         <BsShuffle className="shuffle" />
 

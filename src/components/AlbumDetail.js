@@ -3,6 +3,7 @@ import _ from "lodash";
 import { withRouter, useLocation } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import FooterMusicPlayer from "./FooterMusicPlayer";
+import { shortTitle } from "../utils/helperFunctions";
 
 const AlbumDetail = (props) => {
   const location = useLocation();
@@ -12,28 +13,32 @@ const AlbumDetail = (props) => {
     setAlbum(location.state.album);
   }, []);
   const nextTrack = () => {
-    setIndex(prevIndex => album.songs?.length - 1 === prevIndex ? 0 : (prevIndex + 1));
+    setIndex((prevIndex) =>
+      album.songs?.length - 1 === prevIndex ? 0 : prevIndex + 1
+    );
   };
   const prevTrack = () => {
-    setIndex(prevIndex => prevIndex === 0 ? album.songs?.length - 1 : (prevIndex - 1));
+    setIndex((prevIndex) =>
+      prevIndex === 0 ? album.songs?.length - 1 : prevIndex - 1
+    );
   };
-  const playListItem =(index)=>{
-    setIndex(index)
-  }
+  const playListItem = (index) => {
+    setIndex(index);
+  };
 
   return (
     <div className="container albumDetail">
       <div className="row">
         <div className="col-sm-6 col-md-5 col-lg-3">
           <Card style={{ width: "20rem" }}>
-              <Card.Img
-                variant="top"
-                src={location.state.album.images[0].url}
-                alt=""
-              />
+            <Card.Img
+              variant="top"
+              src={location.state.album.images[0].url}
+              alt=""
+            />
           </Card>
         </div>
-        <div className="col-sm-6 col-md-5 col-lg-9 albumSelection">
+        <div className="col-sm-6 col-md-5 col-lg-8 albumSelection">
           <div className="titlesection">
             <h3> {location.state.album.name}</h3>
             <br />
@@ -53,6 +58,9 @@ const AlbumDetail = (props) => {
           </div>
           <button className="play-btn">Play Song</button>
         </div>
+        <div className="col-lg-1">
+          <button onClick={props.history.goBack}>Back</button>
+        </div>
 
         <div className="col-lg-12 albums">
           <div className="row col-lg-12 ">
@@ -69,10 +77,13 @@ const AlbumDetail = (props) => {
               <h6>Duration</h6>
             </div>
           </div>
-          {location.state.album.songs.map((tracks,index) => (
-            <div className="col-sm-6 col-md-5 col-lg-12 albumList" onClick={()=>playListItem(index)}>
+          {location.state.album.songs.map((tracks, index) => (
+            <div
+              className="col-sm-6 col-md-5 col-lg-12 albumList"
+              onClick={() => playListItem(index)}
+            >
               <img src={tracks.image} className="play" />
-              <div className="col-lg-3 " >{tracks.track}</div>
+              <div className="col-lg-3 ">{shortTitle(tracks.track, 25)}</div>
               <div className="col-lg-3 ">{tracks.artistName}</div>
               <div className="col-lg-3 ">{tracks.album}</div>
               <div className="col-lg-3 ">{tracks.duration}</div>
