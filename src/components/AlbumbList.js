@@ -7,7 +7,7 @@ function AlbumsList(props) {
   const { albums } = props;
 
   const routeChange = (albumId) => {
-    props.history.push("/detailPage", { album: albumId });
+    props.history.push(`/playlist/${albumId.name}`, { album: albumId });
   };
   return (
     <React.Fragment>
@@ -23,12 +23,6 @@ function AlbumsList(props) {
                         style={{ width: "15rem" }}
                         onClick={() => routeChange(album)}
                       >
-                        <a
-                          target="_blank"
-                          // href={album.external_urls.spotify}
-                          rel="noopener noreferrer"
-                          className="card-image-link"
-                        >
                           {!_.isEmpty(album.images) ? (
                             <Card.Img
                               variant="top"
@@ -39,7 +33,6 @@ function AlbumsList(props) {
                             <></>
                             //   <img src={music} alt="" />
                           )}
-                        </a>
                         <Card.Body>
                           <Card.Title>{album.name}</Card.Title>
                           <Card.Text>

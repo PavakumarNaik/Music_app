@@ -17,24 +17,20 @@ const AlbumDetail = (props) => {
   const prevTrack = () => {
     setIndex(prevIndex => prevIndex === 0 ? album.songs?.length - 1 : (prevIndex - 1));
   };
-  console.log("album", album);
+  const playListItem =(index)=>{
+    setIndex(index)
+  }
 
   return (
     <div className="container albumDetail">
       <div className="row">
         <div className="col-sm-6 col-md-5 col-lg-3">
           <Card style={{ width: "20rem" }}>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-image-link"
-            >
               <Card.Img
                 variant="top"
                 src={location.state.album.images[0].url}
                 alt=""
               />
-            </a>
           </Card>
         </div>
         <div className="col-sm-6 col-md-5 col-lg-9 albumSelection">
@@ -48,11 +44,11 @@ const AlbumDetail = (props) => {
             </small>
           </div>
           <div className="row lyricsSection">
-            <div className="col-lg-2">
-              <p>song lyrics</p>
+            <div className="col-lg-4">
+              <p>{location.state.album.songs[0].track}</p>
             </div>
-            <div className="col-lg-2">
-              <p>time</p>
+            <div className="col-lg-1">
+              <p>{location.state.album.songs[0].duration}</p>
             </div>
           </div>
           <button className="play-btn">Play Song</button>
@@ -73,10 +69,10 @@ const AlbumDetail = (props) => {
               <h6>Duration</h6>
             </div>
           </div>
-          {location.state.album.songs.map((tracks) => (
-            <div className="col-sm-6 col-md-5 col-lg-12 albumList">
+          {location.state.album.songs.map((tracks,index) => (
+            <div className="col-sm-6 col-md-5 col-lg-12 albumList" onClick={()=>playListItem(index)}>
               <img src={tracks.image} className="play" />
-              <div className="col-lg-3 ">{tracks.track}</div>
+              <div className="col-lg-3 " >{tracks.track}</div>
               <div className="col-lg-3 ">{tracks.artistName}</div>
               <div className="col-lg-3 ">{tracks.album}</div>
               <div className="col-lg-3 ">{tracks.duration}</div>
