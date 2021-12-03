@@ -56,6 +56,7 @@
   height: 35px;
     width: 47px;
     margin-left: 60px !important;
+    cursor: pointer;
 }
 .lyricsSection{
   margin-top: 10px !important;
@@ -64,16 +65,17 @@
 .play-btn{
   margin-left: 140px !important;
   background-color: #e72c30 !important;
-    color: #fff !important;
+    color: rgb(226, 226, 226) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-grow: 1 !important;
     border-radius: 30px !important;
     font-size: 14px !important;
-    padding: 0 25px !important;
+    padding: 0 25x !important;
     height: 30px !important;
     margin-bottom: 10px !important;
+    cursor: pointer;
 }
 .albumDetail{
   margin-top: 40px !important;
@@ -83,7 +85,7 @@
   align-items: center !important;
   justify-content: center !important;
   margin-top: 2px !important;
-  background-color: #e0dcdc !important;
+  background-color: rgb(226, 226, 226) !important;;
   height: 50px !important;
 }
 .albums{
@@ -94,19 +96,23 @@
   text-align: left !important;
 }
 .shuffle{
+  cursor: pointer;
   height: 25px !important;
   width: 37px !important;
 }
 .skipStart{
   height: 25px !important;
   width: 37px !important;
+  cursor: pointer;
 }
 .speaker{
+  cursor: pointer;
   height: 25px !important;
   width: 37px !important;
 }
 
 .skipEnd{
+  cursor: pointer;
   height: 25px !important;
   width: 37px !important;
 }
@@ -123,4 +129,15 @@
 }
 .currentTrack{
   margin-left: -90px !important;
+}
+.beeMusicText{
+  margin-top: 15px !important;
+  margin-left: -30px !important;
+}
+.navbar-bglight{
+  background-color: rgb(226, 226, 226) !important;
+}
+.LoginSign-btn{
+  cursor: pointer;
+  
 }
