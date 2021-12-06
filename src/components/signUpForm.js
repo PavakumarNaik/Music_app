@@ -18,14 +18,14 @@ function SignUpForm(props) {
   } = props;
   console.log("errors", errors);
   return (
-    <div className="loginBox">
+    <div className="signUpBox">
       <h1>Sign Up</h1>
       {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
 
       <form onSubmit={onSubmit}>
         <TextField
           name="username"
-          className="inputBoxWidth"
+          className="inputBoxWidth userNameField"
           placeholder="user name"
           value={user.username}
           onChange={onChange}
