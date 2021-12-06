@@ -1,6 +1,11 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
+
+  const sinUp = (albumId) => {
+    props.history.push(`/signUp`);
+  };
   return (
     <div className="row" style={{ height: "6rem" }}>
       <nav class="navbar navbar-light  navbar-bglight">
@@ -32,7 +37,7 @@ const Header = () => {
                 </button>
               </div>
               <div className="col-lg-4">
-                <p className="LoginSign-btn">Login / SignUp</p>
+                <p className="LoginSign-btn" onClick={()=>sinUp()}>Login / SignUp</p>
               </div>
             </div>
           </form>
@@ -42,4 +47,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);
