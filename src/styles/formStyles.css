@@ -3,7 +3,7 @@ form {
   }
   
   .loginBox {
-    width: 35%;
+    width: 32%;
     text-align: center;
     position: relative;
     left: 50%;
@@ -14,7 +14,7 @@ form {
   }
   
   .signUpSubmit {
-    margin: 25px 0 15px 0;
+    margin: 20px 0 15px 0;
   }
   
   .pwStrRow {
@@ -48,4 +48,14 @@ form {
       width: 85%;
     }
   }
-  
+  .inputBoxWidth{
+      width: 50% !important;
+      margin-bottom: 4% !important;
+  }
+  .loginInputBoxWidth{
+    width: 50% !important;
+    margin-top: 9% !important;
+  }
+  .loginSubmit {
+    margin: 28px 0 15px 0;
+  }

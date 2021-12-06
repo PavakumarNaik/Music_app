@@ -1,22 +1,22 @@
 import React from "react";
-import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
-import TextField from '@material-ui/core/TextField';
-import Select from '@material-ui/core/Select/Select';
-import MenuItem from '@material-ui/core/MenuItem/MenuItem';
-import '../styles/formStyles.css';
+import TextField from "@material-ui/core/TextField";
+import Select from "@material-ui/core/Select/Select";
+import MenuItem from "@material-ui/core/MenuItem/MenuItem";
+import "../styles/formStyles.css";
 
-function SignUpForm (props) {
-const {history,
-  onSubmit,
-  onChange,
-  errors,
-  user,
-  type,
-  pwMask,
-  onPwChange,
-  countryList} = props
-  console.log("user",props.user);
+function SignUpForm(props) {
+  const {
+    onSubmit,
+    onChange,
+    errors,
+    user,
+    type,
+    onPwChange,
+    countryList,
+    stateList,
+  } = props;
+  console.log("errors", errors);
   return (
     <div className="loginBox">
       <h1>Sign Up</h1>
@@ -25,73 +25,102 @@ const {history,
       <form onSubmit={onSubmit}>
         <TextField
           name="username"
-          floatingLabelText="user name"
+          className="inputBoxWidth"
+          placeholder="user name"
           value={user.username}
           onChange={onChange}
-          errorText={errors.username}
+          error={errors.username}
+          helperText={errors.username}
         />
-        <br/>
+        <br />
         <TextField
           name="email"
-          floatingLabelText="email"
+          className="inputBoxWidth"
+          placeholder="email"
           value={user.email}
           onChange={onChange}
-          errorText={errors.email}
+          error={errors.email}
+          helperText={errors.email}
         />
-        <br/>
-
+        <br />
         <TextField
           type={type}
+          className="inputBoxWidth"
           name="password"
-          floatingLabelText="password"
+          placeholder="password"
           value={user.password}
           onChange={onPwChange}
-          errorText={errors.password}
+          error={errors.password}
+          helperText={errors.password}
         />
-
-         <br/>
-
+        <br />
         <TextField
           type={type}
+          className="inputBoxWidth"
           name="pwconfirm"
-          floatingLabelText="confirm password"
+          placeholder="confirm password"
           value={user.pwconfirm}
           onChange={onChange}
           errorText={errors.pwconfirm}
+          helperText={errors.pwconfirm}
         />
         <br />
-
         <TextField
           type="number"
+          className="inputBoxWidth"
           name="mobileNumner"
-          floatingLabelText="mobile Numner"
+          placeholder="mobile Numner"
           value={user.mobileNumner}
           onChange={onChange}
-          errorText={errors.mobileNumner}
+          error={errors.mobileNumner}
+          helperText={errors.mobileNumner}
         />
         <br />
-        <Select name="country" value={user.country}
-          onChange={onChange}>
-      {countryList?.map(option => {
-          return (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label ?? option.value}
-            </MenuItem>
-          );
-      })}
-    </Select>
-    <br />
-    <TextField
+        <Select
+          className="inputBoxWidth"
+          name="country"
+          label="Select country..."
+          placeholder="Select country..."
+          value={user.country}
+          onChange={onChange}
+        >
+          {countryList?.map((option) => {
+            return (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label ?? option.value}
+              </MenuItem>
+            );
+          })}
+        </Select>
+        <br />
+        <Select
+          className="inputBoxWidth"
+          name="selectedState"
+          label="Select State..."
+          placeholder="Select State..."
+          value={user.selectedState}
+          onChange={onChange}
+        >
+          {stateList?.map((option) => {
+            return (
+              <MenuItem key={option.location} value={option.location}>
+                {option.label ?? option.location}
+              </MenuItem>
+            );
+          })}
+        </Select>
+        <br />
+        <TextField
           name="designation"
-          floatingLabelText="designation"
+          className="inputBoxWidth"
+          placeholder="designation"
           value={user.designation}
           onChange={onChange}
-          errorText={errors.designation}
+          error={errors.designation}
+          helperText={errors.designation}
         />
-       
-    
-    <br />
-    <br />
+        <br />
+        <br />
         <RaisedButton
           className="signUpSubmit"
           primary={true}
@@ -105,6 +134,5 @@ const {history,
       </p>
     </div>
   );
-};
-
+}
 export default SignUpForm;

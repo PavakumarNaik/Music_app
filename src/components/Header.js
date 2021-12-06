@@ -3,9 +3,12 @@ import { withRouter } from "react-router-dom";
 
 const Header = (props) => {
 
-  const sinUp = (albumId) => {
+  const sinUp = () => {
     props.history.push(`/signUp`);
   };
+  const login = () => {
+    props.history.push(`/login`);
+  }
   return (
     <div className="row" style={{ height: "6rem" }}>
       <nav class="navbar navbar-light  navbar-bglight">
@@ -36,8 +39,11 @@ const Header = (props) => {
                   Search
                 </button>
               </div>
-              <div className="col-lg-4">
-                <p className="LoginSign-btn" onClick={()=>sinUp()}>Login / SignUp</p>
+              <div className="col-lg-2">
+                <p className="LoginSign-btn login-button-ml" onClick={()=>login()}>Login </p>
+              </div>
+              <div className="col-lg-2">
+                <p className="LoginSign-btn" onClick={()=>sinUp()}>/ SignUp</p>
               </div>
             </div>
           </form>
