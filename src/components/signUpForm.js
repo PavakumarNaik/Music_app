@@ -3,6 +3,9 @@ import RaisedButton from "material-ui/RaisedButton";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select/Select";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
 import "../styles/formStyles.css";
 
 function SignUpForm(props) {
@@ -19,7 +22,7 @@ function SignUpForm(props) {
   console.log("errors", errors);
   return (
     <div className="signUpBox">
-      <h1>Sign Up</h1>
+      <h4>Sign Up</h4>
       {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
 
       <form onSubmit={onSubmit}>
@@ -76,13 +79,15 @@ function SignUpForm(props) {
           helperText={errors.mobileNumner}
         />
         <br />
+        <FormControl className="inputBoxWidth">
+        <InputLabel htmlFor="country" >Select Country...</InputLabel>
         <Select
-          className="inputBoxWidth"
           name="country"
           label="Select country..."
           placeholder="Select country..."
           value={user.country}
           onChange={onChange}
+          error={errors.country}
         >
           {countryList?.map((option) => {
             return (
@@ -92,14 +97,19 @@ function SignUpForm(props) {
             );
           })}
         </Select>
+        <FormHelperText className="selectErrorMsg">{errors.country}</FormHelperText>
+        </FormControl>
         <br />
+        <FormControl className="inputBoxWidth">
+        <InputLabel htmlFor="selectedState" >Select State...</InputLabel>
         <Select
-          className="inputBoxWidth"
           name="selectedState"
           label="Select State..."
           placeholder="Select State..."
           value={user.selectedState}
           onChange={onChange}
+          error={errors.selectedState}
+          helperText={errors.selectedState}
         >
           {stateList?.map((option) => {
             return (
@@ -109,6 +119,8 @@ function SignUpForm(props) {
             );
           })}
         </Select>
+        <FormHelperText className="selectErrorMsg">{errors.selectedState}</FormHelperText>
+        </FormControl>
         <br />
         <TextField
           name="designation"

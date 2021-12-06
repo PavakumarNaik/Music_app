@@ -8,7 +8,7 @@ function LoginForm(props) {
   console.log("errors", errors);
   return (
     <div className="loginBox">
-      <h1>Login</h1>
+      <h4>Login</h4>
       {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
 
       <form onSubmit={onSubmit}>

@@ -1,4 +1,4 @@
-// const validator = require("validator");
+const validator = require("validator");
 
 const validateSignUpForm = (payload) => {
   const errors = {};
@@ -14,7 +14,7 @@ const validateSignUpForm = (payload) => {
     errors.username = "Please provide a user name.";
   }
 
-  if (!payload || typeof payload.email !== "string" || payload.email) {
+  if (!payload || typeof payload.email !== "string" || !validator.isEmail(payload.email)) {
     isFormValid = false;
     errors.email = "Please provide a correct email address.";
   }
@@ -40,6 +40,24 @@ const validateSignUpForm = (payload) => {
   ) {
     isFormValid = false;
     errors.mobileNumner = "MobileNumner must have at 10 characters.";
+  }
+
+  if (
+    !payload ||
+    typeof payload.country !== "string" ||
+    payload.country.trim().length === 0
+  ) {
+    isFormValid = false;
+    errors.country = "Please select a country.";
+  }
+
+  if (
+    !payload ||
+    typeof payload.selectedState !== "string" ||
+    payload.selectedState.trim().length === 0
+  ) {
+    isFormValid = false;
+    errors.selectedState = "Please select a country.";
   }
 
   if (
