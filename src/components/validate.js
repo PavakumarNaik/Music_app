@@ -35,11 +35,11 @@ const validateSignUpForm = (payload) => {
 
   if (
     !payload ||
-    typeof payload.mobileNumner !== Number ||
-    payload.mobileNumner.trim().length === 10
+    // typeof payload.mobileNumner !== Number ||
+    payload.mobileNumber.trim().length === 9
   ) {
     isFormValid = false;
-    errors.mobileNumner = "MobileNumner must have at 10 characters.";
+    errors.mobileNumber = "MobileNumner must have at 10 characters.";
   }
 
   if (
@@ -79,6 +79,38 @@ const validateSignUpForm = (payload) => {
     errors,
   };
 };
+
+const validateLoginForm = payload => {
+  const errors = {};
+  let message = "";
+  let isFormValid = true;
+
+  if (!payload || typeof payload.email !== "string" || !validator.isEmail(payload.email)) {
+    isFormValid = false;
+    errors.email = "Please provide your user name.";
+  }
+
+  if (
+    !payload ||
+    typeof payload.password !== "string" ||
+    payload.password.trim().length === 0
+  ) {
+    isFormValid = false;
+    errors.password = "Please provide your password.";
+  }
+
+  if (!isFormValid) {
+    message = "Check the form for errors.";
+  }
+
+  return {
+    success: isFormValid,
+    message,
+    errors
+  };
+};
+
 module.exports = {
+  validateLoginForm: validateLoginForm,
   validateSignUpForm: validateSignUpForm,
 };

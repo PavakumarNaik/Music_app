@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LoginForm from "../components/loginForm";
 const FormValidators = require("../components/validate");
-const validateSignUpForm = FormValidators.validateSignUpForm;
+const validateLoginForm = FormValidators.validateLoginForm;
 
 class LoginContainer extends Component {
   constructor(props) {
@@ -52,7 +52,7 @@ class LoginContainer extends Component {
   };
   validateForm = (event) => {
     event.preventDefault();
-    var payload = validateSignUpForm(this.state.user);
+    var payload = validateLoginForm(this.state.user);
     if (payload.success) {
       console.log("success");
       this.setState({

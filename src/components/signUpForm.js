@@ -6,9 +6,11 @@ import MenuItem from "@material-ui/core/MenuItem/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
+import useTranslation from "../context/useTranslation";
 import "../styles/formStyles.css";
 
 function SignUpForm(props) {
+  const { translator } = useTranslation()
   const {
     onSubmit,
     onChange,
@@ -22,7 +24,7 @@ function SignUpForm(props) {
   console.log("errors", errors);
   return (
     <div className="signUpBox">
-      <h4>Sign Up</h4>
+      <h4>{translator("signUp")}</h4>
       {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
 
       <form onSubmit={onSubmit}>
@@ -64,19 +66,19 @@ function SignUpForm(props) {
           placeholder="confirm password"
           value={user.pwconfirm}
           onChange={onChange}
-          errorText={errors.pwconfirm}
+          error={errors.pwconfirm}
           helperText={errors.pwconfirm}
         />
         <br />
         <TextField
           type="number"
           className="inputBoxWidth"
-          name="mobileNumner"
+          name="mobileNumber"
           placeholder="mobile Numner"
-          value={user.mobileNumner}
+          value={user.mobileNumber}
           onChange={onChange}
-          error={errors.mobileNumner}
-          helperText={errors.mobileNumner}
+          error={errors.mobileNumber}
+          helperText={errors.mobileNumber}
         />
         <br />
         <FormControl className="inputBoxWidth">
@@ -137,11 +139,11 @@ function SignUpForm(props) {
           className="signUpSubmit"
           primary={true}
           type="submit"
-          label="submit"
+          label={translator("Submit")}
         />
       </form>
       <p>
-        Aleady have an account? <br />
+      {translator("accountVerify")}? <br />
         <a href="/">Log in here</a>
       </p>
     </div>

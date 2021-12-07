@@ -1,14 +1,16 @@
 import React from "react";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "@material-ui/core/TextField";
+import useTranslation from "../context/useTranslation";
 import "../styles/formStyles.css";
 
 function LoginForm(props) {
+  const { translator } = useTranslation()
   const { onSubmit, onChange, errors, user, type, onPwChange } = props;
   console.log("errors", errors);
   return (
     <div className="loginBox">
-      <h4>Login</h4>
+      <h4>{translator("loginheader")}</h4>
       {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
 
       <form onSubmit={onSubmit}>
@@ -38,11 +40,11 @@ function LoginForm(props) {
           className="loginSubmit"
           primary={true}
           type="submit"
-          label="submit"
+          label={translator("Submit")}
         />
       </form>
       <p>
-        <a href="/">Forgot Password?</a>
+        <a href="/">{translator("forgotPassword")}?</a>
       </p>
     </div>
   );

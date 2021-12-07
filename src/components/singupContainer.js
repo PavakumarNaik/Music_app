@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SignUpForm from "./signUpForm";
+import axios from 'axios';
 const FormValidators = require("../components/validate");
 const validateSignUpForm = FormValidators.validateSignUpForm;
 
@@ -56,7 +57,7 @@ class SignUpContainer extends Component {
         password: "",
         pwconfirm: "",
         country: "",
-        mobileNumner: "",
+        mobileNumber: "",
         designation: "",
         selectedState: "",
       },
@@ -108,18 +109,32 @@ class SignUpContainer extends Component {
       password: user.pw,
       email: user.email,
       country: user.country,
-      mobileNumner: user.mobileNumner,
+      mobileNumber: user.mobileNumber,
       designation: user.designation,
       selectedState: user.selectedState,
     };
     console.log("params", params);
+    if(params){
+      
+    }
+    // axios.post("https://ouramazingserver.com/api/signup/submit", params)
+    // .then((res) => {
+    //   console.log("res",res);
+    //   if (res.data.success === true) {
+        
+    //   } else {
+        
+    //   }
+    // })
+    // .catch((err) => {
+    //   console.log("Sign up data submit error: ", err);
+    // });
   };
 
   validateForm = (event) => {
     event.preventDefault();
     var payload = validateSignUpForm(this.state.user);
     if (payload.success) {
-      console.log("success");
       this.setState({
         errors: {},
       });
@@ -127,11 +142,12 @@ class SignUpContainer extends Component {
         usr: this.state.user.username,
         pw: this.state.user.password,
         email: this.state.user.email,
-        country: this.state.country,
-        mobileNumner: this.state.mobileNumner,
-        designation: this.state.designation,
-        selectedState: this.state.selectedState,
+        country: this.state.user.country,
+        mobileNumber: this.state.user.mobileNumber,
+        designation: this.state.user.designation,
+        selectedState: this.state.user.selectedState,
       };
+      console.log("user",user);
       this.submitSignup(user);
     } else {
       console.log("Fail");
@@ -145,7 +161,6 @@ class SignUpContainer extends Component {
   };
 
   render() {
-    console.log("this.state.stateLists", this.state.stateLists);
     return (
       <div>
         <SignUpForm
