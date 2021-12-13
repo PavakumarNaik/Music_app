@@ -35,11 +35,10 @@ const validateSignUpForm = (payload) => {
 
   if (
     !payload ||
-    // typeof payload.mobileNumner !== Number ||
-    payload.mobileNumber.trim().length === 9
+    payload.mobileNumber.trim().length !== 10
   ) {
     isFormValid = false;
-    errors.mobileNumber = "MobileNumner must have at 10 characters.";
+    errors.mobileNumber = "MobileNumber must have at 10 characters.";
   }
 
   if (

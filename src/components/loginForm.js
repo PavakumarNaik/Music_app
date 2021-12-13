@@ -6,13 +6,12 @@ import "../styles/formStyles.css";
 
 function LoginForm(props) {
   const { translator } = useTranslation()
-  const { onSubmit, onChange, errors, user, type, onPwChange } = props;
-  console.log("errors", errors);
+  const { onSubmit, onChange, errors, user, type, onPwChange, getTokenId } = props;
+
   return (
     <div className="loginBox">
       <h4>{translator("loginheader")}</h4>
       {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
-
       <form onSubmit={onSubmit}>
         <TextField
           name="email"

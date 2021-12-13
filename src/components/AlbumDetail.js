@@ -10,6 +10,7 @@ const AlbumDetail = (props) => {
   const [album, setAlbum] = useState({});
   const [index, setIndex] = useState(0);
   useEffect(() => {
+    console.log("location.state.album",location.state.album);
     setAlbum(location.state.album);
   }, []);
   const nextTrack = () => {

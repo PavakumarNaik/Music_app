@@ -4,10 +4,11 @@ import _ from "lodash";
 import { withRouter } from "react-router-dom";
 
 function AlbumsList(props) {
-  const { albums } = props;
-
+  const { albums, CategoryName } = props;
+console.log("albumsssss",albums);
   const routeChange = (albumId) => {
-    props.history.push(`/playlist/${albumId.name}`, { album: albumId });
+    console.log("albumId",albumId);
+    props.history.push(`/${CategoryName}/${albumId.name}`, { album: albumId });
   };
   return (
     <React.Fragment>
@@ -19,6 +20,7 @@ function AlbumsList(props) {
                 <React.Fragment key={index}>
                   <div className="col-sm-6 col-md-5 col-lg-3 albums">
                     <Card
+                    className="albumblistCard"
                       style={{ width: "15rem" }}
                       onClick={() => routeChange(album)}
                     >

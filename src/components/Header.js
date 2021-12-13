@@ -4,6 +4,7 @@ import {LanguageContext} from '../context/languageprovider-context'
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Search from './search';
 
 const Header = (props) => {
   const [language, setlanguage] = useContext(LanguageContext);
@@ -28,35 +29,29 @@ const Header = (props) => {
   }
 
   return (
-    <div className="row" style={{ height: "6rem" }}>
+    <div className="row" >
       <nav class="navbar navbar-light  navbar-bglight">
-        <div className="row col-lg-5">
-          <div className="col-lg-2">
+        <div className="row col-lg-2 logoSection" onClick={()=>props.history.push(`/`)} >
+          <div className="col-lg-6">
             <img src="https://www.getmusicbee.com/img/musicbee.png" />
           </div>
-          <div className="col-lg-2 beeMusicText">
+          <div className="col-lg-4 beeMusicText">
             <h4 class="navbar-brand">Bee Music</h4>
           </div>
         </div>
         <div className="col-lg-5">
           <form class="form-inline">
             <div className="row col-12">
-              <div className="col-lg-4">
-                <input
+              <div className="col-lg-6">
+                {/* <input
                   class="form-control mr-sm-2"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
-                />
+                /> */}
+                <Search/>
               </div>
-              <div className="col-lg-2">
-                <button
-                  class="btn btn-outline-success my-2 my-sm-0"
-                  type="submit"
-                >
-                  Search
-                </button>
-              </div>
+             
               <div className="col-lg-2">
               <Button aria-describedby={id} variant="contained" onClick={handleClick}>
         language

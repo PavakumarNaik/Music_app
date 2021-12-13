@@ -85,8 +85,9 @@
   align-items: center !important;
   justify-content: center !important;
   margin-top: 2px !important;
-  background-color: rgb(226, 226, 226) !important;;
+  background-color: rgb(226, 226, 226) !important;
   height: 50px !important;
+  cursor: pointer;
 }
 .albums{
  margin-top: 2% !important;
@@ -142,4 +143,28 @@
 }
 .login-button-ml{
   margin-left: 91% !important;
+}
+.suggestion{
+    width: 900px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);
+    margin-top: -30% !important ;
+    z-index: 5;
+}
+.navbar-bglight{
+  height: 90px !important;
+}
+.MuiBackdrop-root{
+  z-index: 1 !important;
+}
+.logoSection{
+  cursor: pointer;
+}
+.albumblistCard{
+  cursor: pointer;
 }

@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import SignUpForm from "./signUpForm";
-import axios from 'axios';
+import axios from "axios";
+import { signup } from "../firebase";
+import { db } from "../firebase";
+import Snackbar from "@material-ui/core/Snackbar";
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { collection, addDoc } from "firebase/firestore";
+import { withRouter } from "react-router-dom";
 const FormValidators = require("../components/validate");
 const validateSignUpForm = FormValidators.validateSignUpForm;
 
@@ -44,7 +51,7 @@ const stateList = [
     ],
   },
 ];
-
+const usersCollectionRef = collection(db, "users");
 class SignUpContainer extends Component {
   constructor(props) {
     super(props);
@@ -65,6 +72,10 @@ class SignUpContainer extends Component {
       type: "password",
       score: "0",
       stateLists: [],
+      open: false,
+      vertical: "top",
+      horizontal: "center",
+      CircularProgressOpen: false,
     };
   }
 
@@ -103,32 +114,33 @@ class SignUpContainer extends Component {
     }
   };
 
-  submitSignup = (user) => {
-    var params = {
-      username: user.usr,
-      password: user.pw,
-      email: user.email,
-      country: user.country,
-      mobileNumber: user.mobileNumber,
-      designation: user.designation,
-      selectedState: user.selectedState,
-    };
-    console.log("params", params);
-    if(params){
-      
+  submitSignup = async (user) => {
+    this.setState({ CircularProgressOpen: true });
+    try {
+      await signup(user.email, user.pw);
+      await addDoc(usersCollectionRef, {
+        username: user.usr,
+        password: user.pw,
+        email: user.email,
+        country: user.country,
+        mobileNumber: user.mobileNumber,
+        designation: user.designation,
+        selectedState: user.selectedState,
+      });
+      this.setState({ CircularProgressOpen: false });
+      this.setState({ open: true });
+    } catch {
+      this.setState({ CircularProgressOpen: false });
+      alert("Please try different email");
     }
-    // axios.post("https://ouramazingserver.com/api/signup/submit", params)
-    // .then((res) => {
-    //   console.log("res",res);
-    //   if (res.data.success === true) {
-        
-    //   } else {
-        
-    //   }
-    // })
-    // .catch((err) => {
-    //   console.log("Sign up data submit error: ", err);
-    // });
+  };
+
+  handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    this.setState({ open: false });
+    this.props.history.push(`/login`);
   };
 
   validateForm = (event) => {
@@ -147,7 +159,7 @@ class SignUpContainer extends Component {
         designation: this.state.user.designation,
         selectedState: this.state.user.selectedState,
       };
-      console.log("user",user);
+      console.log("user", user);
       this.submitSignup(user);
     } else {
       console.log("Fail");
@@ -161,8 +173,22 @@ class SignUpContainer extends Component {
   };
 
   render() {
+    const { vertical, horizontal, open, CircularProgressOpen } = this.state;
     return (
       <div>
+        <Snackbar
+          anchorOrigin={{ vertical, horizontal }}
+          open={open}
+          onClose={this.handleClose}
+          autoHideDuration={2000}
+          message="You have signed up successfully"
+          key={vertical + horizontal}
+        />
+
+        <Backdrop sx={{ color: "#fff", zIndex: 7 }} open={CircularProgressOpen}>
+          <CircularProgress color="inherit" />
+        </Backdrop>
+
         <SignUpForm
           onSubmit={this.validateForm}
           onChange={this.handleChange}
@@ -181,4 +207,4 @@ class SignUpContainer extends Component {
   }
 }
 
-export default SignUpContainer;
+export default withRouter(SignUpContainer);
