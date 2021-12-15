@@ -950,6 +950,599 @@ const Data = {
       },
     ],
   },
+  trendingSongs: {
+    items: [
+      {
+        name: "Tumbe Te Zumba",
+        id: 1,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Love Nwtiti",
+        id: 2,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Pyaar Karte Ho Na",
+        id: 3,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/albums/w4MKPObojg/MKPgrR6Abo/size_m.jpg",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Justin's Summer Playlist",
+        id: 4,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Pyaar Karte Ho Na",
+        id: 5,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/albums/9MAWe97WyJ/AWe97o45Wy/size_m.jpg",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Pyaar Karte Ho Na",
+        id: 6,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/albums/jBr3gybR1m/r3gLg609WR/size_m.jpg",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Pyaar Karte Ho Na",
+        id: 7,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/albums/ogNWkDbmXJ/NWkLqjAXbm/size_m.jpg",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Pyaar Karte Ho Na",
+        id: 8,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/albums/ZaP374RWDy/P37OGQr93D/size_m.jpg",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+    ],
+  },
+  radioSongs: {
+    items: [
+      {
+        name: "Club Mirchi Radio - Party 24X7",
+        id: 1,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/m_radio_circle/w4MKPObojg/w4MKPObojg/size_m_1563783532.webp",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Party Hits (Punjabi)",
+        id: 2,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/g_radio_circle/4Z9bqo3yQn/4Z9bqmJbyQ/size_m_1563778936.webp",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Party Non Stop - Radio",
+        id: 3,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/g_radio_circle/DwPKOxB3qV/DwPKOwkKqV/size_m_1567583117.webp",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Mirchi Campus",
+        id: 4,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/m_radio_circle/Bp1bAnK029/Bp1bAnK029/size_m_1637922143.webp",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Punjabi Mirchi",
+        id: 5,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/m_radio_circle/XzVWRLKdqR/XzVWRLKdqR/size_m_1637661317.webp",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "Happy Feels",
+        id: 6,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/g_radio_circle/21GWwrR3pk/21GWwe4Kpk/size_m_1588760360.webp",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+      {
+        name: "90's Ki Cassette Radio",
+        id: 7,
+        images: [
+          {
+            url: "https://a10.gaanacdn.com/gn_img/g_radio_circle/4Z9bqZoKyQ/4Z9bqNPKyQ/size_m_1628848671.webp",
+          },
+          { url: "" },
+          { url: "" },
+          { url: "" },
+        ],
+        songs: [
+          {
+            track: "Hit my line, call me whenever you want some me",
+            duration: "03.05",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/song/MmqK5pEbwR/qK5xn9LEbw/size_m_1637206402.webp",
+          },
+          {
+            track: "Even though that wasn't in the plans right",
+            duration: "05.03",
+            artistName: "Arjit Singh",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/R7vKX6WmrP/7vKXAym63m/size_m.webp",
+          },
+          {
+            track: "King of this fly shit, yeah, I know",
+            duration: "04.15",
+            artistName: "Arman mallik",
+            album: "Qayamat Se Qayamat Tak",
+            image:
+              "https://a10.gaanacdn.com/gn_img/albums/Bp1bAynb02/1bAyB70Nb0/size_m.jpg",
+          },
+        ],
+        artists: [{ name: "A. R. Rahman" }, { name: "Arijit singh" }],
+      },
+    ],
+  },
 };
 
 export const AlbumContext = createContext({});

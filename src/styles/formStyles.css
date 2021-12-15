@@ -3,27 +3,16 @@ form {
   }
   
   .loginBox {
-    width: 26%;
+    width: 600px;
     text-align: center;
     position: relative;
-    left: 50%;
-    transform: translate(-50%, 20%);
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);
-    margin-top: 2% !important ;
-
+    transform: translate(-25%, 5%);
   }
   .signUpBox {
-    width: 29%;
+    width: 600px;
     text-align: center;
     position: relative;
-    left: 50%;
-    transform: translate(-50%, 20%);
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);
-    margin-top: -3% !important ;
+    transform: translate(-25%, -6%);
   }
 .userNameField{
     margin-top: 3% !important;

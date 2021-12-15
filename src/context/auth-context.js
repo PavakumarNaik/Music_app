@@ -1,12 +1,12 @@
 import React from 'react';
 
 export const AuthContext = React.createContext({
-    authToken: null,
+    authToken:{ userInfo:{} },
     setAuth: () => { }
 });
 
 export const AuthProvider = ({ children}) => {
-    const [authToken, setAuth] = React.useState();
+    const [authToken, setAuth] = React.useState({idToken: null,userInfo:{}});
 
     return (
         <AuthContext.Provider

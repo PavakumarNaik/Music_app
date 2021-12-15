@@ -140,7 +140,8 @@ class SignUpContainer extends Component {
       return;
     }
     this.setState({ open: false });
-    this.props.history.push(`/login`);
+    this.props.login();
+    // this.props.history.push(`/login`);
   };
 
   validateForm = (event) => {
@@ -185,7 +186,7 @@ class SignUpContainer extends Component {
           key={vertical + horizontal}
         />
 
-        <Backdrop sx={{ color: "#fff", zIndex: 7 }} open={CircularProgressOpen}>
+        <Backdrop className="backdrop" sx={{ color: "#fff", zIndex: 7 }} open={CircularProgressOpen}>
           <CircularProgress color="inherit" />
         </Backdrop>
 
