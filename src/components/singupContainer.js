@@ -8,6 +8,8 @@ import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { collection, addDoc } from "firebase/firestore";
 import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
+import { userSignUp } from '../redux/actions/ActionCreators';
 const FormValidators = require("../components/validate");
 const validateSignUpForm = FormValidators.validateSignUpForm;
 
@@ -115,6 +117,7 @@ class SignUpContainer extends Component {
   };
 
   submitSignup = async (user) => {
+    this.props.userSignUp({user})
     this.setState({ CircularProgressOpen: true });
     try {
       await signup(user.email, user.pw);
@@ -174,6 +177,7 @@ class SignUpContainer extends Component {
   };
 
   render() {
+    console.log("signup++",this.props.userSignupData);
     const { vertical, horizontal, open, CircularProgressOpen } = this.state;
     return (
       <div>
@@ -207,5 +211,17 @@ class SignUpContainer extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  userSignupData: state.signUpInfo,
+});
 
-export default withRouter(SignUpContainer);
+const mapDispatchToProps = {
+  userSignUp,
+};
+
+const userSignUpContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUpContainer);
+
+export default withRouter(userSignUpContainer);

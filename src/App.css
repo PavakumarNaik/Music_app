@@ -64,15 +64,15 @@
 }
 .play-btn{
   margin-left: 140px !important;
-  background-color: #e72c30 !important;
-    color: rgb(226, 226, 226) !important;
+  background-color: #ffcc33 !important;
+    color: rgb(0, 0, 0) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-grow: 1 !important;
     border-radius: 30px !important;
     font-size: 14px !important;
-    padding: 0 25x !important;
+    padding: 2% !important;
     height: 30px !important;
     margin-bottom: 10px !important;
     cursor: pointer;
@@ -136,7 +136,7 @@
   margin-left: -30px !important;
 }
 .navbar-bglight{
-  background-color: rgb(226, 226, 226) !important;
+  background-color: #ffcc33 !important;
 }
 .LoginSign-btn{
   cursor: pointer;
@@ -216,4 +216,43 @@
 }
 .accountDetailsPd{
   padding: 0% 7% 0% 7% !important;
+}
+.mt-5{
+  margin-top: 3% !important;
+}
+.personal-info-text{
+  cursor: pointer !important;
+}
+.recentplayed-tumbnail{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 5%;
+  margin-left: -52px;
+    cursor: pointer;
+}
+.recentlyplayed-card{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28% !important;
+  text-align: left !important;
+  margin-top: 10px !important;
+  margin-left: 4% !important;
+  background-color: rgba(224, 222, 222, 0.5) !important;
+}
+.recentplayed-img{
+  min-height: 80px !important;
+  max-height: 80px !important;
+}
+.moreOption-btn{
+  padding: 1% !important;
+  cursor: pointer;
+}
+.recentPlayedContainer{
+  margin-left: 2% !important;
+  margin-top: 1% !important;
 }

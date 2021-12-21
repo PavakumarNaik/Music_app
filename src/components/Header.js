@@ -23,26 +23,36 @@ const Header = (props) => {
   const [users, SetUsers] = useState([]);
   const [loginModelOpen, setLoginModelOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [userIdToken, setUserIdToken] = useState(false);
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
   useEffect(() => {
-    if (authToken.idToken !== null && authToken.idToken !== undefined) {
-      setIsToken(true);
+    const userIdToken = localStorage.getItem("userID");
+    if (userIdToken) {
+      setUserIdToken(userIdToken);
     }
-  }, [authToken.idToken]);
+    console.log("idTokenuseEffect", userIdToken);
+  }, [userIdToken]);
+
+  // useEffect(() => {
+  //   console.log("authToken.idToken",authToken.idToken);
+  //   if (authToken.idToken !== null && authToken.idToken !== undefined) {
+  //     setIsToken(true);
+  //   }
+  // }, [authToken.idToken]);
 
   useEffect(async () => {
+    const userEmail = localStorage.getItem("userEmail");
     const data = await getDocs(usersCollectionRef);
     let userList = [];
     data.docs.forEach((doc) => {
       userList.push({ ...doc.data(), id: doc.id });
     });
-    let currentUserInfo = userList?.find(
-      (x) => x.email === authToken.userInfo.email
-    );
+    let currentUserInfo = userList?.find((x) => x.email === userEmail);
     console.log("currentUserInfo", currentUserInfo);
+    setAuth({ ...authToken, userInfo: currentUserInfo });
     SetUsers(currentUserInfo);
   }, []);
 
@@ -70,11 +80,9 @@ const Header = (props) => {
 
   const logout = () => {
     localStorage.removeItem("userID");
-    setIsToken(false);
+    setUserIdToken(false);
+    window.location.reload();
   };
-  console.log("users+___", users);
-  var base64Icon = "data:image/png;base64,iVBORw0KGgoAAAANS...";
-  console.log("base64Icon",base64Icon);
   return (
     <div className="row">
       <nav class="navbar navbar-light  navbar-bglight">
@@ -94,7 +102,7 @@ const Header = (props) => {
         </div>
         <div className="col-lg-4">
           <div className="row col-12">
-            <div className="col-lg-6">
+            <div className="col-lg-8">
               <Button
                 aria-describedby={id}
                 variant="contained"
@@ -122,14 +130,23 @@ const Header = (props) => {
                 </Typography>
               </Popover>
             </div>
-            {!isToken ? (
-              <>
+            {userIdToken ? (
+              <div className="row col-lg-4">
                 <div className="col-lg-3">
+                  <UserMenu HandleLogOut={logout} userInfo={users} />
+                </div>
+                <div className="col-lg-2">
+                  <img src={users?.profile} className="play" />
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="col-lg-2">
                   <p
                     className="LoginSign-btn login-button-ml"
                     onClick={() => login()}
                   >
-                    Login{" "}
+                    Login
                   </p>
                 </div>
 
@@ -139,18 +156,6 @@ const Header = (props) => {
                   </p>
                 </div>
               </>
-            ) : (
-              <div className="row col-lg-5">
-                <div className="col-lg-3">
-                  <UserMenu
-                    HandleLogOut={logout}
-                    userInfo={authToken.userInfo}
-                  />
-                </div>
-                <div className="col-lg-2">
-                  <img src={base64Icon} className="play" />
-                </div>
-              </div>
             )}
           </div>
         </div>
@@ -161,7 +166,11 @@ const Header = (props) => {
         open={loginModelOpen}
       >
         <DialogContent>
-          {showForm ? <SignUpContainer login={login}/> : <LoginContainer handleLoginClose={handleLoginClose}/>}
+          {showForm ? (
+            <SignUpContainer login={login} />
+          ) : (
+            <LoginContainer handleLoginClose={handleLoginClose} />
+          )}
         </DialogContent>
       </Dialog>
     </div>

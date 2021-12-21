@@ -8,6 +8,8 @@ import Snackbar from "@material-ui/core/Snackbar";
 import Backdrop from "@material-ui/core/Backdrop";
 import { AuthContext } from "../context/auth-context";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { connect } from 'react-redux';
+import { userLogin } from '../redux/actions/ActionCreators';
 const FormValidators = require("../components/validate");
 const validateLoginForm = FormValidators.validateLoginForm;
 
@@ -25,16 +27,13 @@ function LoginContainer(props) {
   const [CircularProgressOpen, setCircularProgressOpen] = useState(false);
   const [authToken, setAuth] = useContext(AuthContext);
 
-  useEffect(()=>{
+  
     const auth = getAuth();
     onAuthStateChanged(auth, (currentUser) => {
       setCurrentUsers(currentUser);
     });
-  },[currentUsers])
  
-  
-  
- 
+
   const handleChange = (event) => {
     const field = event.target.name;
     const users = user;
@@ -49,7 +48,7 @@ function LoginContainer(props) {
     setUser({ ...user, users });
   };
 
-  const getUserInfo = () => {
+  const getUserInfo = (params) => {
     onSnapshot(collection(db, "users"), (snapshot) => {
       let userList = [];
       snapshot.docs.forEach((doc) => {
@@ -58,13 +57,13 @@ function LoginContainer(props) {
       console.log('currentUsers.email----',currentUsers);
 
       let userInformation = userList.find(
-        (x) => x.email === currentUsers.email
+        (x) => x.email === params.email
       );
-      console.log("userInformation1234",userInformation);
       setAuth({ ...authToken, userInfo: userInformation });
     });
   };
   const submitSignup = async (user) => {
+    props.userLogin({user})
     setCircularProgressOpen(true);
     var params = { password: user.password, email: user.email };
     try {
@@ -73,13 +72,14 @@ function LoginContainer(props) {
         password: user.password,
         email: user.email,
       });
+      await getUserInfo(params);
       setCircularProgressOpen(false);
       setOpen(true);
       console.log('currentUsers.email',currentUsers.email);
       const idToken = await currentUsers.getIdToken();
-      await getUserInfo();
-      setAuth({ ...authToken, idToken: idToken });
+      localStorage.setItem("userEmail",user.email)
       localStorage.setItem("userID", idToken);
+      setAuth({ ...authToken, idToken: idToken });
     } catch {
       setCircularProgressOpen(false);
       alert("You have entered invalid credentials");
@@ -88,12 +88,13 @@ function LoginContainer(props) {
     }
   };
 
-  const handleClose = (event, reason) => {
+  const handleClose = async(event, reason) => {
     if (reason === "clickaway") {
       return;
     }
     setOpen(false);
     props.handleLoginClose()
+    window.location.reload();
   };
 
   const validateForm = async (event) => {
@@ -107,9 +108,10 @@ function LoginContainer(props) {
       setErrors(errorMessage);
     }
   };
-
+console.log("this.props.user.user",props.userData);
   return (
     <div>
+      {/* {this.props.user.user} */}
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={open}
@@ -137,4 +139,17 @@ function LoginContainer(props) {
   );
 }
 
-export default LoginContainer;
+const mapStateToProps = state => ({
+  userData: state.user,
+});
+
+const mapDispatchToProps = {
+  userLogin,
+};
+
+const AppContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginContainer);
+
+export default AppContainer;

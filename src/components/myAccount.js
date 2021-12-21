@@ -1,28 +1,11 @@
 import { useContext, useState } from "react";
 import { withRouter } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
-import { collection, addDoc, onSnapshot, updateDoc, doc } from "firebase/firestore";
-import { db } from "../firebase";
 
 function MyAccount(props) {
     const[image,setImage]=useState("")
   const [authToken, setAuth] = useContext(AuthContext);
 
-  const updateProfile= async()=>{
-      const userDoc = doc(db, "users",authToken.userInfo.id)
-      const newFields = {profile:image}
-    await updateDoc(userDoc,newFields)
-  }
-
-  const handlechange=(e)=>{
-        console.log("e",e.target.files[0]);
-        let file = e.target.files[0];
-            const reader = new FileReader();
-            reader.onloadend = () =>{
-                setImage(reader.result.toString())
-            }
-        reader.readAsDataURL(file)
-  }
   const handleUpdateProfile=()=>{
     props.history.push(`/users/updateProfile`);
   }
@@ -40,7 +23,7 @@ function MyAccount(props) {
         </div>
       </div>
       <div className="col-lg-8 userPersonalInfo">
-        <h5>Personal information</h5>
+        <h5 className="personal-info-text">Personal information</h5>
         <div className="userDetails">
           <br />
           <br />
@@ -55,9 +38,6 @@ function MyAccount(props) {
           <br />
           <p>Designation: &nbsp;&nbsp; {authToken?.userInfo?.designation}</p>
         </div> 
-
-        <input type="file" className="hidden" id="fileupload" accept=".jpg, .png, .jpeg" onChange={(e)=>handlechange(e)}/>
-        <button onClick={updateProfile}>upload</button>
       </div>
     </div>
     // </div>

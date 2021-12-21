@@ -10,7 +10,6 @@ class AppRouter extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="main">
             <Header/>
           <Switch>
             <Route path="/" component={LandingPage} exact={true} />
@@ -19,7 +18,6 @@ class AppRouter extends React.Component {
             <Route exact path="/:name" component={Home} />
             <Route exact path="/:CategoryName/:name" component={AlbumDetail} />
           </Switch>
-        </div>
       </BrowserRouter>
     );
   }

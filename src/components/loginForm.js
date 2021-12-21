@@ -35,12 +35,13 @@ function LoginForm(props) {
         />
         <br />
         <br />
-        <RaisedButton
+        <button
           className="loginSubmit"
           primary={true}
           type="submit"
-          label={translator("Submit")}
-        />
+          style={{ backgroundColor: "#ffcc33" }}
+        > {translator("Submit")}
+        </button>
       </form>
       <p>
         <a href="/">{translator("forgotPassword")}?</a>

@@ -1,31 +1,42 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import _ from "lodash";
 import { withRouter, useLocation } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import FooterMusicPlayer from "./FooterMusicPlayer";
 import { shortTitle } from "../utils/helperFunctions";
+import { AlbumContext } from "../context/AlbumContext";
 
 const AlbumDetail = (props) => {
   const location = useLocation();
-  const [album, setAlbum] = useState({});
+  const [albumItem, setAlbumItem] = useState({});
   const [index, setIndex] = useState(0);
+  const [Album, setAlbum] = useContext(AlbumContext);
+
   useEffect(() => {
-    console.log("location.state.album",location.state.album);
-    setAlbum(location.state.album);
+    // localStorage.setItem("recentData",JSON.stringify([]))
+    setAlbumItem(location.state.album);
+    const recentData = JSON.parse(localStorage.getItem("recentData"))
+    const updateRecentData = ({...recentData,recentData:recentData.unshift(location.state.album)})
+    setAlbum({...Album,recentPlayedSongs:recentData})
+    localStorage.setItem("recentData",JSON.stringify(recentData))
+
   }, []);
+
   const nextTrack = () => {
     setIndex((prevIndex) =>
-      album.songs?.length - 1 === prevIndex ? 0 : prevIndex + 1
+    albumItem.songs?.length - 1 === prevIndex ? 0 : prevIndex + 1
     );
   };
   const prevTrack = () => {
     setIndex((prevIndex) =>
-      prevIndex === 0 ? album.songs?.length - 1 : prevIndex - 1
+      prevIndex === 0 ? albumItem.songs?.length - 1 : prevIndex - 1
     );
   };
   const playListItem = (index) => {
+   
     setIndex(index);
   };
+  console.log("aaaalbum",Album);
 
   return (
     <div className="container albumDetail">

@@ -64,12 +64,12 @@ function SearchBox() {
         setSearchResultFail(true);
       }
       setFilteredSongs(filteredSong);
-    }else{
+    } else {
       ShowSuggestion(false);
     }
   };
   const suggestionOpen = (e) => {
-    ShowSuggestion(false)
+    // ShowSuggestion(false)
   };
   const suggestionClose = () => {
     ShowSuggestion(false);
@@ -95,9 +95,7 @@ function SearchBox() {
           <SearchIconWrapper>
             <AiOutlineSearch />
           </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-          />
+          <StyledInputBase placeholder="Search…" />
         </Search>
         {showSuggestion ? (
           <section className="suggestion">

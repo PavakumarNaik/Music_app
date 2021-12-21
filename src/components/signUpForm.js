@@ -10,7 +10,7 @@ import useTranslation from "../context/useTranslation";
 import "../styles/formStyles.css";
 
 function SignUpForm(props) {
-  const { translator } = useTranslation()
+  const { translator } = useTranslation();
   const {
     onSubmit,
     onChange,
@@ -82,46 +82,50 @@ function SignUpForm(props) {
         />
         <br />
         <FormControl className="inputBoxWidth">
-        <InputLabel htmlFor="country" >Select Country...</InputLabel>
-        <Select
-          name="country"
-          label="Select country..."
-          placeholder="Select country..."
-          value={user.country}
-          onChange={onChange}
-          error={errors.country}
-        >
-          {countryList?.map((option) => {
-            return (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label ?? option.value}
-              </MenuItem>
-            );
-          })}
-        </Select>
-        <FormHelperText className="selectErrorMsg">{errors.country}</FormHelperText>
+          <InputLabel htmlFor="country">Select Country...</InputLabel>
+          <Select
+            name="country"
+            label="Select country..."
+            placeholder="Select country..."
+            value={user.country}
+            onChange={onChange}
+            error={errors.country}
+          >
+            {countryList?.map((option) => {
+              return (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label ?? option.value}
+                </MenuItem>
+              );
+            })}
+          </Select>
+          <FormHelperText className="selectErrorMsg">
+            {errors.country}
+          </FormHelperText>
         </FormControl>
         <br />
         <FormControl className="inputBoxWidth">
-        <InputLabel htmlFor="selectedState" >Select State...</InputLabel>
-        <Select
-          name="selectedState"
-          label="Select State..."
-          placeholder="Select State..."
-          value={user.selectedState}
-          onChange={onChange}
-          error={errors.selectedState}
-          helperText={errors.selectedState}
-        >
-          {stateList?.map((option) => {
-            return (
-              <MenuItem key={option.location} value={option.location}>
-                {option.label ?? option.location}
-              </MenuItem>
-            );
-          })}
-        </Select>
-        <FormHelperText className="selectErrorMsg">{errors.selectedState}</FormHelperText>
+          <InputLabel htmlFor="selectedState">Select State...</InputLabel>
+          <Select
+            name="selectedState"
+            label="Select State..."
+            placeholder="Select State..."
+            value={user.selectedState}
+            onChange={onChange}
+            error={errors.selectedState}
+            helperText={errors.selectedState}
+          >
+            {stateList?.map((option) => {
+              return (
+                <MenuItem key={option.location} value={option.location}>
+                  {option.label ?? option.location}
+                </MenuItem>
+              );
+            })}
+          </Select>
+          <FormHelperText className="selectErrorMsg">
+            {errors.selectedState}
+          </FormHelperText>
         </FormControl>
         <br />
         <TextField
@@ -134,16 +138,12 @@ function SignUpForm(props) {
           helperText={errors.designation}
         />
         <br />
-        <br />
-        <RaisedButton
-          className="signUpSubmit"
-          primary={true}
-          type="submit"
-          label={translator("Submit")}
-        />
+        <button className="loginSubmit" primary={true} type="submit">
+          {translator("Submit")}
+        </button>
       </form>
       <p>
-      {translator("accountVerify")}? <br />
+        {translator("accountVerify")}? <br />
         <a href="/">Log in here</a>
       </p>
     </div>
