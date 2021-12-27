@@ -15,7 +15,7 @@ const RecentlyPlayed = (props) => {
     console.log("recentplayedData123",recentplayedData);
   },[])
   const routeChange = (albumId) => {
-    const CategoryName = "trendingSongs";
+    const CategoryName = "recentPlayed";
     props.history.push(`/${CategoryName}/${albumId.name}`, { album: albumId });
   };
   return (
@@ -27,7 +27,7 @@ const RecentlyPlayed = (props) => {
           <React.Fragment key={index}>
             <div
               className="row col-lg-4 recentlyplayed-card"
-              onClick={routeChange}
+              onClick={() => routeChange(album)}
             >
               <div className="col-lg-3 recentplayed-tumbnail">
                 <img

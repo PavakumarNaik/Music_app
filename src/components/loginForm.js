@@ -6,8 +6,8 @@ import "../styles/formStyles.css";
 
 function LoginForm(props) {
   const { translator } = useTranslation()
-  const { onSubmit, onChange, errors, user, type, onPwChange, getTokenId } = props;
-
+  const { onSubmit, onChange, errors, user, type, onPwChange, getTokenId, userData } = props;
+console.log("userData",userData?.profile?.users);
   return (
     <div className="loginBox">
       <h4>{translator("loginheader")}</h4>

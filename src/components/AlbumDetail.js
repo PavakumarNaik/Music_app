@@ -15,16 +15,51 @@ const AlbumDetail = (props) => {
   useEffect(() => {
     // localStorage.setItem("recentData",JSON.stringify([]))
     setAlbumItem(location.state.album);
-    const recentData = JSON.parse(localStorage.getItem("recentData"))
-    const updateRecentData = ({...recentData,recentData:recentData.unshift(location.state.album)})
-    setAlbum({...Album,recentPlayedSongs:recentData})
-    localStorage.setItem("recentData",JSON.stringify(recentData))
-
+    const recentData = JSON.parse(localStorage.getItem("recentData"));
+    let recentPlayedInfo = recentData?.find(
+      (x) => x.id === location.state.album.id
+    );
+    let recentDataIndex = recentData?.findIndex(
+      (x) => x.id === location.state.album.id
+    );
+    if (recentDataIndex > -1) {
+      console.log("if ",recentData.length );
+        const updateRecentData = {
+          ...recentData,
+          recentData: recentData.splice(recentDataIndex, 1),
+        };
+        localStorage.setItem("recentData", JSON.stringify(recentData));
+        const updateRecentlyData = {
+          ...recentData,
+          recentData: recentData.unshift(location.state.album),
+        };
+        localStorage.setItem("recentData", JSON.stringify(recentData));
+    } else {
+      console.log("else ",recentData.length );
+      if (recentData.length > 4) {
+        const updateRecentData = {
+          ...recentData,
+          recentData: recentData.unshift(location.state.album),
+        };
+        localStorage.setItem("recentData", JSON.stringify(recentData));
+        const updateRecentlyData = {
+          ...recentData,
+          recentData: recentData.pop(),
+        };
+        localStorage.setItem("recentData", JSON.stringify(recentData));
+      } else {
+        const updateRecentData = {
+          ...recentData,
+          recentData: recentData.unshift(location.state.album),
+        };
+        localStorage.setItem("recentData", JSON.stringify(recentData));
+      }
+    }
   }, []);
 
   const nextTrack = () => {
     setIndex((prevIndex) =>
-    albumItem.songs?.length - 1 === prevIndex ? 0 : prevIndex + 1
+      albumItem.songs?.length - 1 === prevIndex ? 0 : prevIndex + 1
     );
   };
   const prevTrack = () => {
@@ -33,10 +68,9 @@ const AlbumDetail = (props) => {
     );
   };
   const playListItem = (index) => {
-   
     setIndex(index);
   };
-  console.log("aaaalbum",Album);
+  console.log("aaaalbum", Album);
 
   return (
     <div className="container albumDetail">

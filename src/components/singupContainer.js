@@ -9,7 +9,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { collection, addDoc } from "firebase/firestore";
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
-import { userSignUp } from '../redux/actions/ActionCreators';
+import { userSignUp, formSubmittionStatus } from '../redux/actions/ActionCreators';
 const FormValidators = require("../components/validate");
 const validateSignUpForm = FormValidators.validateSignUpForm;
 
@@ -118,7 +118,7 @@ class SignUpContainer extends Component {
 
   submitSignup = async (user) => {
     this.props.userSignUp({user})
-    this.setState({ CircularProgressOpen: true });
+    this.props.formSubmittionStatus(true)
     try {
       await signup(user.email, user.pw);
       await addDoc(usersCollectionRef, {
@@ -130,10 +130,10 @@ class SignUpContainer extends Component {
         designation: user.designation,
         selectedState: user.selectedState,
       });
-      this.setState({ CircularProgressOpen: false });
+      this.props.formSubmittionStatus(false)
       this.setState({ open: true });
     } catch {
-      this.setState({ CircularProgressOpen: false });
+      this.props.formSubmittionStatus(false)
       alert("Please try different email");
     }
   };
@@ -178,7 +178,7 @@ class SignUpContainer extends Component {
 
   render() {
     console.log("signup++",this.props.userSignupData);
-    const { vertical, horizontal, open, CircularProgressOpen } = this.state;
+    const { vertical, horizontal, open} = this.state;
     return (
       <div>
         <Snackbar
@@ -190,7 +190,7 @@ class SignUpContainer extends Component {
           key={vertical + horizontal}
         />
 
-        <Backdrop className="backdrop" sx={{ color: "#fff", zIndex: 7 }} open={CircularProgressOpen}>
+        <Backdrop className="backdrop" sx={{ color: "#fff", zIndex: 7 }} open={this.props.userSignupData.formSubmitted}> 
           <CircularProgress color="inherit" />
         </Backdrop>
 
@@ -212,11 +212,12 @@ class SignUpContainer extends Component {
   }
 }
 const mapStateToProps = state => ({
-  userSignupData: state.signUpInfo,
+  userSignupData: state.user,
 });
 
 const mapDispatchToProps = {
   userSignUp,
+  formSubmittionStatus
 };
 
 const userSignUpContainer = connect(

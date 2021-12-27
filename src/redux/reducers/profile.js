@@ -6,16 +6,16 @@ const initialState = {
     username: "",
     email: "",
   },
-//   formSubmitted: false
+  formSubmitted: false
 }
 
 const reducer = (state = initialState, action) => {
+  console.log("action.payload",action.payload);
   switch (action.type) {
     case Types.LOGIN:
-    console.log('login', action.payload.user)
       return {
         ...state,
-        profile: action.payload.user,
+        profile: action.payload,
         formSubmitted: false 
       }
       case Types.SIGN_UP:
@@ -28,6 +28,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         formSubmitted: action.payload.status
+      }
+
+      case Types.GET_CURRENT_USER:
+      return {
+        ...state,
+        currentUserInfo: action.payload
       }
     default:
       return state;

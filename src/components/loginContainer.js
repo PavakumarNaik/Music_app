@@ -9,7 +9,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import { AuthContext } from "../context/auth-context";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { connect } from 'react-redux';
-import { userLogin } from '../redux/actions/ActionCreators';
+import { userLogin, formSubmittionStatus, currentUserInfo} from '../redux/actions/ActionCreators';
 const FormValidators = require("../components/validate");
 const validateLoginForm = FormValidators.validateLoginForm;
 
@@ -24,7 +24,6 @@ function LoginContainer(props) {
   const [open, setOpen] = useState(false);
   const [vertical, setVertical] = useState("top");
   const [horizontal, setHorizontal] = useState("center");
-  const [CircularProgressOpen, setCircularProgressOpen] = useState(false);
   const [authToken, setAuth] = useContext(AuthContext);
 
   
@@ -63,17 +62,19 @@ function LoginContainer(props) {
     });
   };
   const submitSignup = async (user) => {
-    props.userLogin({user})
-    setCircularProgressOpen(true);
+    props.formSubmittionStatus(true)
     var params = { password: user.password, email: user.email };
     try {
-      await login(user.email, user.password);
-      await addDoc(usersCollectionRef, {
-        password: user.password,
-        email: user.email,
-      });
+      await props.userLogin(user);
+      await props.currentUserInfo()
+      props.formSubmittionStatus(false)
+
+      // await login(user.email, user.password);
+      // await addDoc(usersCollectionRef, {
+      //   password: user.password,
+      //   email: user.email,
+      // });
       await getUserInfo(params);
-      setCircularProgressOpen(false);
       setOpen(true);
       console.log('currentUsers.email',currentUsers.email);
       const idToken = await currentUsers.getIdToken();
@@ -81,10 +82,8 @@ function LoginContainer(props) {
       localStorage.setItem("userID", idToken);
       setAuth({ ...authToken, idToken: idToken });
     } catch {
-      setCircularProgressOpen(false);
+      props.formSubmittionStatus(false)
       alert("You have entered invalid credentials");
-    }
-    if (params) {
     }
   };
 
@@ -92,9 +91,9 @@ function LoginContainer(props) {
     if (reason === "clickaway") {
       return;
     }
-    setOpen(false);
-    props.handleLoginClose()
-    window.location.reload();
+    // setOpen(false);
+    // props.handleLoginClose()
+    // window.location.reload();
   };
 
   const validateForm = async (event) => {
@@ -111,7 +110,6 @@ function LoginContainer(props) {
 console.log("this.props.user.user",props.userData);
   return (
     <div>
-      {/* {this.props.user.user} */}
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={open}
@@ -121,7 +119,7 @@ console.log("this.props.user.user",props.userData);
         key={vertical + horizontal}
       />
 
-      <Backdrop className="backdrop" sx={{ color: "#fff", zIndex: 10 }} open={CircularProgressOpen}>
+      <Backdrop className="backdrop" sx={{ color: "#fff", zIndex: 10 }} open={props.userData.formSubmitted}>
         <CircularProgress color="inherit" />
       </Backdrop>
 
@@ -134,6 +132,7 @@ console.log("this.props.user.user",props.userData);
         score={score}
         btnTxt={btnTxt}
         type={type}
+        userData={props.userData}
       />
     </div>
   );
@@ -145,6 +144,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   userLogin,
+  formSubmittionStatus,
+  currentUserInfo
 };
 
 const AppContainer = connect(

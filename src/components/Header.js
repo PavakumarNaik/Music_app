@@ -36,13 +36,6 @@ const Header = (props) => {
     console.log("idTokenuseEffect", userIdToken);
   }, [userIdToken]);
 
-  // useEffect(() => {
-  //   console.log("authToken.idToken",authToken.idToken);
-  //   if (authToken.idToken !== null && authToken.idToken !== undefined) {
-  //     setIsToken(true);
-  //   }
-  // }, [authToken.idToken]);
-
   useEffect(async () => {
     const userEmail = localStorage.getItem("userEmail");
     const data = await getDocs(usersCollectionRef);
@@ -83,6 +76,7 @@ const Header = (props) => {
     setUserIdToken(false);
     window.location.reload();
   };
+  console.log("usersprofile",users);
   return (
     <div className="row">
       <nav class="navbar navbar-light  navbar-bglight">

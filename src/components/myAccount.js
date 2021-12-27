@@ -18,12 +18,12 @@ function MyAccount(props) {
           <h6>my Account Details</h6>
           <br />
           <div>
-            <p onClick={handleUpdateProfile}>Update Personal Data</p>
+            <p className="personal-info-text" onClick={handleUpdateProfile}>Update Personal Data</p>
           </div>
         </div>
       </div>
       <div className="col-lg-8 userPersonalInfo">
-        <h5 className="personal-info-text">Personal information</h5>
+        <h5 className="">Personal information</h5>
         <div className="userDetails">
           <br />
           <br />
